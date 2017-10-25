@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         adapter.addFragment(ListContentFragment(), "List");
         adapter.addFragment(TileContentFragment(), "Tile");
-//        adapter.addFragment(CardContentFragment(), "Card");
+        adapter.addFragment(CardContentFragment(), "Card");
 
         viewPager.adapter = adapter
     }
