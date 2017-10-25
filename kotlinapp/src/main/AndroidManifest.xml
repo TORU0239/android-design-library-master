@@ -20,6 +20,7 @@
         <activity android:name=".DetailActivity"
             android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity">
+            <!-- to support api 4 ~ 16, we should declare parentActivity with below meta-data -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
