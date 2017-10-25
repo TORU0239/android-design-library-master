@@ -75,7 +75,11 @@ class CardContentViewHolder(layoutInflater: LayoutInflater, parent:ViewGroup?) :
 
         with(itemView) {
             setOnClickListener {
-                Toast.makeText(it.context, "Under Construction", Toast.LENGTH_SHORT).show()
+                val context = it.context
+                Intent(context, DetailActivity::class.java).let{
+                    it.putExtra(DetailActivity.EXTRA_POSITION, adapterPosition)
+                    context.startActivity(it)
+                }
             }
             action_button.setOnClickListener {
                 Snackbar.make(this, "Action is Pressed", Snackbar.LENGTH_LONG).show()

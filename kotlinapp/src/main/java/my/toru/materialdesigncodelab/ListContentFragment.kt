@@ -1,6 +1,7 @@
 package my.toru.materialdesigncodelab
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -73,6 +74,13 @@ class ViewHolder(inflater: LayoutInflater, parent:ViewGroup?): RecyclerView.View
             list_title.text = place
             list_desc.text = placeDesc
             list_avatar.setImageDrawable(placeAvator)
+            setOnClickListener {
+                val context = it.context
+                Intent(context, DetailActivity::class.java).let{
+                    it.putExtra(DetailActivity.EXTRA_POSITION, adapterPosition)
+                    context.startActivity(it)
+                }
+            }
         }
     }
 }
