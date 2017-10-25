@@ -2,6 +2,7 @@ package my.toru.materialdesigncodelab
 
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.drawable.Drawable
 import android.os.Bundle
@@ -76,6 +77,13 @@ class TitleViewHolder(inflater: LayoutInflater, parent:ViewGroup?): RecyclerView
         itemView.apply {
             tile_picture.setImageDrawable(placePicture)
             tile_title.text = place
+            setOnClickListener {
+                val context = it.context
+                Intent(context, DetailActivity::class.java).let{
+                    it.putExtra(DetailActivity.EXTRA_POSITION, adapterPosition)
+                    context.startActivity(it)
+                }
+            }
         }
     }
 }
