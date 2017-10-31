@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-include ':app', ':kotlinapp'
+include ':app', ':kotlinapp', ':1-Basekotlin', ':2-colorkotlin'
 include ':1-Base'
 include ':2-Color'
 include ':3-Layout'
