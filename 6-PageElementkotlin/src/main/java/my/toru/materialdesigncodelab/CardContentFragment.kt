@@ -21,12 +21,15 @@ import android.content.res.Resources
 import android.content.res.TypedArray
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 
@@ -54,6 +57,24 @@ class CardContentFragment : Fragment() {
             picture = itemView.findViewById<View>(R.id.card_image) as ImageView
             name = itemView.findViewById<View>(R.id.card_title) as TextView
             description = itemView.findViewById<View>(R.id.card_text) as TextView
+            // Adding Snackbar to Action Button inside card
+            val button = itemView.findViewById<View>(R.id.action_button) as Button
+            button.setOnClickListener { v ->
+                Snackbar.make(v, "Action is pressed",
+                        Snackbar.LENGTH_LONG).show()
+            }
+
+            val favoriteImageButton = itemView.findViewById<View>(R.id.favorite_button) as ImageButton
+            favoriteImageButton.setOnClickListener { v ->
+                Snackbar.make(v, "Added to Favorite",
+                        Snackbar.LENGTH_LONG).show()
+            }
+
+            val shareImageButton = itemView.findViewById<View>(R.id.share_button) as ImageButton
+            shareImageButton.setOnClickListener { v ->
+                Snackbar.make(v, "Share article",
+                        Snackbar.LENGTH_LONG).show()
+            }
         }
     }
 
@@ -61,6 +82,7 @@ class CardContentFragment : Fragment() {
      * Adapter to display recycler view.
      */
     class ContentAdapter(context: Context) : RecyclerView.Adapter<ViewHolder>() {
+
         private val mPlaces: Array<String>
         private val mPlaceDesc: Array<String>
         private val mPlacePictures: ArrayList<Drawable>
