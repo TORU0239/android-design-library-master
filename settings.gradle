@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-include ':app', ':kotlinapp', ':1-Basekotlin', ':2-Colorkotlin', ':3-Layoutkotlin', ':4-Recyclerviewkotlin', ':5-Vectorassetskotlin'
+include ':app', ':kotlinapp', ':1-Basekotlin', ':2-Colorkotlin', ':3-Layoutkotlin', ':4-Recyclerviewkotlin', ':5-Vectorassetskotlin', ':6-PageElementkotlin'
 include ':1-Base'
 include ':2-Color'
 include ':3-Layout'

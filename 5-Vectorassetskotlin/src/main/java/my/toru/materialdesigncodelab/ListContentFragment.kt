@@ -63,16 +63,16 @@ class ListContentFragment : Fragment() {
     class ContentAdapter(context: Context) : RecyclerView.Adapter<ViewHolder>() {
         private val mPlaces: Array<String>
         private val mPlaceDesc: Array<String>
-        private val mPlaceAvators: Array<Drawable>
+        private val mPlaceAvators: ArrayList<Drawable>
 
         init {
             val resources = context.resources
             mPlaces = resources.getStringArray(R.array.places)
             mPlaceDesc = resources.getStringArray(R.array.place_desc)
             val a = resources.obtainTypedArray(R.array.place_avator)
-            mPlaceAvators = arrayOfNulls(a.length())
-            for (i in mPlaceAvators.indices) {
-                mPlaceAvators[i] = a.getDrawable(i)
+            mPlaceAvators = ArrayList()
+            for (i in 0 until a.length()) {
+                mPlaceAvators.add(i, a.getDrawable(i))
             }
             a.recycle()
         }

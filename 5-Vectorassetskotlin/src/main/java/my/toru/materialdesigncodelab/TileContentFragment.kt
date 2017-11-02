@@ -63,15 +63,15 @@ class TileContentFragment : Fragment() {
      */
     class ContentAdapter(context: Context) : RecyclerView.Adapter<ViewHolder>() {
         private val mPlaces: Array<String>
-        private val mPlacePictures: Array<Drawable>
+        private val mPlacePictures: ArrayList<Drawable>
 
         init {
             val resources = context.resources
             mPlaces = resources.getStringArray(R.array.places)
             val a = resources.obtainTypedArray(R.array.places_picture)
-            mPlacePictures = arrayOfNulls(a.length())
-            for (i in mPlacePictures.indices) {
-                mPlacePictures[i] = a.getDrawable(i)
+            mPlacePictures = ArrayList()
+            for (i in 0 until a.length()) {
+                mPlacePictures.add(i, a.getDrawable(i))
             }
             a.recycle()
         }
